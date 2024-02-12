@@ -1,4 +1,8 @@
-eps = 0.01;
+x_cells = 8;
+y_cells = 6;
+type = "core"; // side or corner
+
+// eps = 0.01;
 
 // Main dimensions
 cell_size = 25;
@@ -334,10 +338,15 @@ module trapz_thread(d1, d2, h1, h2, thread_len, pitch) {
     );
 }
 
-// multiboard_core(3, 2);
 
-// translate([0, 75, 0])
-//     multiboard_side(3, 2);
+if (type == "core") {
+    multiboard_core(x_cells, y_cells);
+}
 
-// translate([0, 150, 0])
-//     multiboard_corner(3, 2);
+if (type == "side") {
+    multiboard_side(x_cells, y_cells);
+}
+
+if (type == "corner") {
+    multiboard_corner(x_cells, y_cells);
+}
