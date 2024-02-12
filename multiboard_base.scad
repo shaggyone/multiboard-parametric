@@ -42,7 +42,7 @@ small_thread_h2 = small_thread_pitch-0.5;
 small_thread_fn=32;
 
 
-module multiboard_common_base(x_cells, y_cells) {
+module multiboard_core_base(x_cells, y_cells) {
     board_width  = cell_size * x_cells;
     board_height = cell_size * y_cells;
 
@@ -182,9 +182,9 @@ module multiboard_corner_base(x_cells, y_cells) {
 
 
 
-module multiboard_common(x_cells, y_cells) {
+module multiboard_core(x_cells, y_cells) {
   difference() {
-    multiboard_common_base(x_cells, y_cells);
+    multiboard_core_base(x_cells, y_cells);
 
     for(i=[0: x_cells-1]) {
       for(j=[0: y_cells-1]) {
@@ -334,10 +334,10 @@ module trapz_thread(d1, d2, h1, h2, thread_len, pitch) {
     );
 }
 
-multiboard_common(3, 2);
+// multiboard_core(3, 2);
 
-translate([0, 75, 0])
-    multiboard_side(3, 2);
+// translate([0, 75, 0])
+//     multiboard_side(3, 2);
 
-translate([0, 150, 0])
-    multiboard_corner(3, 2);
+// translate([0, 150, 0])
+//     multiboard_corner(3, 2);
